@@ -1,69 +1,64 @@
-<p id="notice"><%= notice %></p>
+<%= link_to '<< Back', projects_path, class: "btn btn-light m-3" %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+<div class="card">
+  <div class="card-body">
+    <h2 class = "card-title d-flex justify-content-between mb-4">
+    <span> <%= @project.name %></span>
+      <div>
+        <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-warning"%>
+        <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      </div>
+    </h2>
+    <h3> Description </h3>
+    <p class="card-body"> <%= @project.description %></p>
+    <h3> Task List </h3>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Status</th>
+      </tr>
+      <% @project.tasks.each do |task| %>
+        <%if task.persisted? %>
+          <tr>
+            <td><%= task.name %></td>
+            <td><%= task.description %></td>
+            <td><%= task.status %></td>
+            <td><%= link_to 'Show', [task.project, task] %></td>
+            <td><%= link_to 'Edit', edit_project_task_path(task.project, task) %></td>
+            <td><%= link_to 'Destroy', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <%end%>
+      <% end %>
+    </table>
+    <h3>Add tasks to your project</h3>
+      <%= form_for([@task.project, @task])do |f| %>
+        <% if @task.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+            <ul>
+            <% @task.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-<p>
-  <strong>User:</strong>
-  <%= @project.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
-
-<br>
-<br>
-<hr>
-<br>
-<br>
-
-<h1>New task</h1>
-
-<%= render 'tasks/form' %>
-
-<br>
-<br>
-<hr>
-<br>
-<br>
-
-<h1>Listing tasks</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>Project</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-
-<% @project.tasks.each do |task| %>
-  <%if task.persisted? %>
-    <tr>
-      <td><%= task.name %></td>
-      <td><%= task.description %></td>
-      <td><%= task.status %></td>
-      <td><%= task.project %></td>
-      <td><%= link_to 'Show', [task.project, task] %></td>
-      <td><%= link_to 'Edit', edit_project_task_path(task.project, task) %></td>
-      <td><%= link_to 'Destroy', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <%end%>
+    <div class="input-group">
+      <%= f.text_field :description, class: 'form-control', placeholder: "enter description" %>
+      <div class="input-group-append">
+        <%= f.submit class: "btn btn-success" %>
+      </div>  
+    </div>
 <% end %>
-</table>
+ 
+  </div>
+</div>
 
-<br />
+<%# Here you want to add user card - i.e info, photo, follower count ect %>
+<p>
+  <strong>Project by User : <%= @project.user_id%></strong>
+</p>
 
-<%= link_to 'New Task', new_project_task_path(@project.id) %>
-
+<%= link_to '<< Back', projects_path, class: "btn btn-primary" %>

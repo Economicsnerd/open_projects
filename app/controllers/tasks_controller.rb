@@ -45,7 +45,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
 
-    redirect_to (@task.project)
+    redirect_to @project
   end
 
   private
