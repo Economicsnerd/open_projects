@@ -18,4 +18,16 @@ class Task < ApplicationRecord
         'success'
       end
     end                  
+  
+
+  def completed? 
+    status == 'completed'
+  end
+  def in_progress?
+    status == 'in-progress'
+  end
+  def not_started?
+    status == 'not-strated'
+  end
+
 end
