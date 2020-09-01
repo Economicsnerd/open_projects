@@ -11,32 +11,11 @@
     </h2>
     <h3> Description </h3>
     <p class="card-body"> <%= @project.description %></p>
-    <h3> Task List </h3>
-    <% @project.tasks.each do |task| %>
-      <% if task.persisted? %>
-        <div class = "card mb-3">
-          <div class = "card-body">
-          <div class= "d-flex justify-content-between">
-            <span class = "badge badge-<%= task.badge_color %> mb-3"> <%= task.status %> </span>
-            <div>
-              <%= link_to 'Edit', edit_project_task_path(task.project, task), class: "btn btn-warning btn-sm" %>
-              <%= link_to 'Destroy', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %> 
-            </div>
-          </div>          
-            <h5 class= "card-title  mb-2">
-              <span> <strong> <%= task.name %> </strong> </span>                           
-            </h5>  
-            <span> <%=task.description%> </span>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
     <h3 class = "mt-3 mb-3">Add tasks to your project</h3>
       <%= form_for([@task.project, @task])do |f| %>
         <% if @task.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
             <ul>
             <% @task.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
@@ -54,6 +33,34 @@
       <br>
       <br>
       <br>
+    <h3> Task List </h3>
+    <ul id = "tasks-list">
+        <% @project.tasks.each do |task| %>
+          <% if task.persisted? %>
+          <li>
+            <div class = "card mb-3">
+              <div class = "card-body">
+              <div class= "d-flex justify-content-between">
+                <div>
+                <%# Why is this not working ? %>
+                <i class="fas fa-grip-vertical"></i>
+                <span class = "badge badge-<%= task.badge_color %> mb-3"> <%= task.status %> </span>
+                </div>
+                <div>
+                  <%= link_to 'Edit', edit_project_task_path(task.project, task), class: "btn btn-warning btn-sm" %>
+                  <%= link_to 'Destroy', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %> 
+                </div>
+              </div>          
+                <h5 class= "card-title  mb-2">
+                  <span> <strong> <%= task.name %> </strong> </span>                           
+                </h5>  
+                <span> <%=task.description%> </span>
+              </div>
+            </div>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
       <div class = "card">
         <div class = "card-body">
           <strong>Project by User : <%= @project.user_id%> </strong>

@@ -8,6 +8,7 @@ require('turbolinks').start();
 require('@rails/activestorage').start();
 require('channels');
 
+import Sortable from 'sortablejs';
 import '../Stylesheets/application';
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -16,3 +17,8 @@ import '../Stylesheets/application';
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+document.addEventListener('turbolinks:load', () => {
+  let el = document.getElementById('tasks-list');
+  let sortable = Sortable.create(el);
+});

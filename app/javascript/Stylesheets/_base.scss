@@ -4,3 +4,15 @@
     background-color: #f7f7f7;
   }
 }
+
+.fas {
+  width: 100%;
+}
+
+#tasks-list {
+  list-style: none;
+  padding-left: 0;
+  li {
+    cursor: pointer;
+  }
+}
