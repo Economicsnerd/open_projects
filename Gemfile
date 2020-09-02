@@ -34,8 +34,7 @@ gem 'nested_scaffold', '~> 1.1'
 # Devise for authentication
 gem 'devise', '~> 4.7', '>= 4.7.2'
 
-# Font Awesome
-gem 'font-awesome-sass'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -6,7 +6,7 @@
 }
 
 .fas {
-  width: 100%;
+  display: inline-block;
 }
 
 #tasks-list {
@@ -15,4 +15,71 @@
   li {
     cursor: pointer;
   }
+}
+
+// Image overlay hover effect
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1em;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.project-listing {
+  position: relative;
+}
+
+.project-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(80, 79, 77, 0.308);
+  /* typographic styles */
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+
+  /* position the text centrally*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* hide the title by default */
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.project-footer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin-top: 55%;
+  margin-left: 3%;
+  /* hide the title by default */
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.project-listing:hover .project-title {
+  opacity: 1;
+}
+.project-listing:hover .project-footer {
+  opacity: 1;
+}
+.project-image {
+  line-height: 0;
+}
+
+.progress-tracker {
+  background-color: white;
 }
