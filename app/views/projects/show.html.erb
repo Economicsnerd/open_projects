@@ -9,9 +9,9 @@
         <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
       </div>
     </h2>
-    <h3> Description </h3>
+    <h4> Project Details </h4>
     <p class="card-body"> <%= @project.description %></p>
-    <h3 class = "mt-3 mb-3">Add tasks to your project</h3>
+    <h3 class = "mt-8 mb-3">Add tasks to your project</h3>
       <%= form_for([@task.project, @task])do |f| %>
         <% if @task.errors.any? %>
           <div id="error_explanation">
@@ -27,12 +27,12 @@
       <div class="input-group">
         <%= f.text_field :name, class: 'form-control', placeholder: "type here ..." %>
         <div class="input-group-append">
-          <%= f.submit class: "btn btn-success" %>
+          <%= button_tag type: 'Add Task', class: "btn btn-primary" do %>
+              <i class="fas fa-plus-circle"></i>
+          <% end %>
         </div>
       </div>
-      <br>
-      <br>
-      <br>
+    <p class="mt-4"><small>Arrange your task with a simple drag and drop</small></p>
     <h3> <%= @project.task_counter %> Tasks so far </h3>
     <ul id = "tasks-list">
         <% @project.tasks.each do |task| %>
@@ -48,7 +48,8 @@
                 </div>
                 <div>
                   <%= link_to 'Edit', edit_project_task_path(task.project, task), class: "btn btn-warning btn-sm" %>
-                  <%= link_to 'Destroy', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+                  <%= link_to 'Complete', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success btn-sm"%>
+
                 </div>
               </div>
                 <h5 class= "card-title  mb-2">
