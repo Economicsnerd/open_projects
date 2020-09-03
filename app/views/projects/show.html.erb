@@ -28,12 +28,12 @@
         <%= f.text_field :name, class: 'form-control', placeholder: "type here ..." %>
         <div class="input-group-append">
           <%= f.submit class: "btn btn-success" %>
-        </div>  
+        </div>
       </div>
       <br>
       <br>
       <br>
-    <h3> Task List </h3>
+    <h3> <%= @project.task_counter %> Tasks so far </h3>
     <ul id = "tasks-list">
         <% @project.tasks.each do |task| %>
           <% if task.persisted? %>
@@ -48,12 +48,12 @@
                 </div>
                 <div>
                   <%= link_to 'Edit', edit_project_task_path(task.project, task), class: "btn btn-warning btn-sm" %>
-                  <%= link_to 'Destroy', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %> 
+                  <%= link_to 'Destroy', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
                 </div>
-              </div>          
+              </div>
                 <h5 class= "card-title  mb-2">
-                  <span> <strong> <%= task.name %> </strong> </span>                           
-                </h5>  
+                  <span> <strong> <%= task.name %> </strong> </span>
+                </h5>
                 <span> <%=task.description%> </span>
               </div>
             </div>
@@ -61,12 +61,12 @@
         <% end %>
       <% end %>
     </ul>
-      <div class = "card">
-        <div class = "card-body">
-          <strong>Project by User : <%= @project.user_id%> </strong>
-        </div>
-      </div>  
     <% end %>
+  </div>
+</div>
+<div class = "card mt-3">
+<div class = "card-body">
+    <strong>Project by User : <%= @project.user_id%> </strong>
   </div>
 </div>
 <%= link_to '<< Back', projects_path, class: "btn btn-light mb-3 mt-3" %>

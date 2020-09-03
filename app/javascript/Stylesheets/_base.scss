@@ -1,20 +1,21 @@
-.project-card {
-  transition: background-color 0.5 ease;
-  &:hover {
-    background-color: #f7f7f7;
-  }
+body {
+  font-family: 'Raleway', sans-serif !important;
 }
 
-.fas {
-  display: inline-block;
-}
-
+// Styling the task list
 #tasks-list {
   list-style: none;
   padding-left: 0;
   li {
     cursor: pointer;
   }
+}
+
+.card {
+  border-radius: 0 !important;
+  -webkit-box-shadow: -4px 0px 5px 0.25px rgba(0,0,0,0.16);
+  -moz-box-shadow: -4px 0px 5px 0.25px rgba(0,0,0,0.16);
+  box-shadow: -4px 0px 5px 0.25px rgba(0,0,0,0.16);
 }
 
 // Image overlay hover effect
@@ -35,6 +36,7 @@ img {
 }
 
 .project-title {
+  font-weight: 400 !important;
   position: absolute;
   top: 0;
   left: 0;
@@ -55,6 +57,12 @@ img {
   /* hide the title by default */
   opacity: 0;
   transition: opacity 0.5s;
+}
+
+.project-image {
+  -webkit-box-shadow: -4px 0px 5px 0.25px rgba(0,0,0,0.16);
+  -moz-box-shadow: -4px 0px 5px 0.25px rgba(0,0,0,0.16);
+  box-shadow: -4px 0px 5px 0.25px rgba(0,0,0,0.16);
 }
 
 .project-footer {
@@ -82,4 +90,14 @@ img {
 
 .progress-tracker {
   background-color: white;
+}
+
+// Button Styling
+
+.badge {
+  border-radius: 0px!important;
+}
+
+.btn {
+  border-radius: 0px!important;
 }

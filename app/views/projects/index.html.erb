@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
   <div class = "card-body">
       <h2 class="card-title d-flex justify-content-between mb-4">
-        <span>Projects</span>
-        <%= link_to 'New Project', new_project_path, class: "btn btn-success" %>
+        <strong>
+          <span>My Projects</span>
+        </strong>
+        <%= link_to 'New Project', new_project_path, class: "btn btn-dark" %>
       </h2>
 
 <div class="child-page-listing">
   <div class = "grid-container">
-    <%# Loop through each project %>
     <% @projects.each do |project|%>
     <article class="project-listing">
       <%=link_to project, class: 'text-decoration-none' do%>
@@ -18,22 +19,16 @@
         <span class = "badge badge-<%= project.badge_color%>" >
           <%=project.status%>
         </span>
-         <span class = "badge badge-<%= project.badge_color%>" > 
+         <span class = "badge badge-<%= project.badge_color%>" >
           <%= project.progress_tracker%> % completed
-          (<%= project.completed_tasks%>/<%= project.task_counter%>)
-         </span> 
+         </span>
       </div>
-      
+
       <div class="project-image">
-          <img id = "image" src = "https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"> 
+          <img id = "image" src = "https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
       </div>
       <% end %>
     </article>
     <% end %>
   </div>
 </div>
-
-      
-    
-
-

@@ -11,7 +11,7 @@ class Project < ApplicationRecord
       when 'completed'
         'success'
       end
-    end 
+    end
 
 
   def status
@@ -20,13 +20,14 @@ class Project < ApplicationRecord
       "completed"
     elsif tasks.any? { |task| task.in_progress? || task.completed? }
       "in-progress"
-    else 
+    else
       "not-started"
     end
   end
 
+
   def progress_tracker
-    return 0 if tasks.none? 
+    return 0 if tasks.none?
     ((completed_tasks.to_f / task_counter) * 100).round
   end
 
@@ -34,6 +35,7 @@ class Project < ApplicationRecord
     tasks.select { |task| task.completed? }.count
   end
   def task_counter
+    return "No tasks yet!" if tasks.none?
     tasks.count
   end
 end
