@@ -6,7 +6,7 @@
     <span> <%= @project.name %></span>
       <div>
         <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-warning"%>
-        <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        <%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
       </div>
     </h2>
     <h4> Project Details </h4>
@@ -42,14 +42,11 @@
               <div class = "card-body">
               <div class= "d-flex justify-content-between">
                 <div>
-                <%# Why is this not working ? %>
-                <i class="fas fa-grip-vertical"></i>
+                <i class="far fa-hand-paper"></i>
                 <span class = "badge badge-<%= task.badge_color %> mb-3"> <%= task.status %> </span>
                 </div>
                 <div>
-                  <%= link_to 'Edit', edit_project_task_path(task.project, task), class: "btn btn-warning btn-sm" %>
-                  <%= link_to 'Complete', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success btn-sm"%>
-
+                  <%= link_to 'Update Task', edit_project_task_path(task.project, task), class: "btn btn-warning btn-sm" %>
                 </div>
               </div>
                 <h5 class= "card-title  mb-2">

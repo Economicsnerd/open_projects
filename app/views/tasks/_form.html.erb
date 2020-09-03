@@ -21,9 +21,9 @@
   </div>
   <div class="form group">
     <%= f.label :status %><br />
-    <%= f.select :status, Task::STATUS_OPTIONS, {}, class: "form-control btn btn-light dropdown-toggle" %>
+    <%= f.select :status, Task::STATUS_OPTIONS, {}, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit class: "btn btn-primary mt-4" %>
+    <%= f.submit class: "btn btn-warning mt-4" %>
   </div>
 <% end %>

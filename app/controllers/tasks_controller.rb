@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :set_project
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
-  # GET projects/1/tasks
+  # GET all Tasks
   def index
     @tasks = @project.tasks
   end
