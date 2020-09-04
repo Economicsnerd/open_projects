@@ -2,6 +2,16 @@ body {
   font-family: 'Raleway', sans-serif !important;
 }
 
+// Styling project list
+
+#project-list {
+  list-style: none;
+  padding-left: 0;
+  li {
+    cursor: pointer;
+  }
+}
+
 // Styling the task list
 #tasks-list {
   list-style: none;

@@ -22,5 +22,18 @@ import '@fortawesome/fontawesome-free/js/all.js';
 
 document.addEventListener('turbolinks:load', () => {
   let el = document.getElementById('tasks-list');
-  let sortable = Sortable.create(el);
+  let sortable = Sortable.create(el, {
+    animation: 175,
+    ghostClass: 'blue-background-class'
+  });
 });
+
+document.addEventListener('turbolinks:load', () => {
+  let el = document.getElementById('project-list');
+  let sortable = Sortable.create(el, {
+    swapThreshold: 1,
+    animation: 150
+  });
+});
+
+import "controllers"
