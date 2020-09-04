@@ -37,6 +37,9 @@ gem 'devise', '~> 4.7', '>= 4.7.2'
 # For security
 gem 'dotenv-rails', groups: [:development, :test]
 
+# Cloudinary for Image upload
+gem 'cloudinary', '~> 1.16.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -49,6 +52,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-rails'
 end
 
 group :test do
