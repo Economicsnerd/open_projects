@@ -1,0 +1,2 @@
+class ImageElement < ApplicationRecord
+end
