@@ -9,23 +9,25 @@
 
 <div class="child-page-listing">
   <ul class="grid-container" id="project-list" data-action="drop->project#sort">
-        <% @projects.each do |project|%>
-        <li class="project-listing" data-task-id = "<%= project.id %>">
-          <%=link_to project, class: 'text-decoration-none' do%>
-          <div class = "project-title">
-            <h5> <%= project.name %> </h5>
-          </div>
-          <div class = "project-footer">
-            <span class = "badge badge-<%= project.badge_color%>" >
-              <%=project.status%>
-            </span>
-             <span class = "badge badge-<%= project.badge_color%>" >
-              <%= project.progress_tracker%> % completed
-             </span>
-          </div>
-          <div class="project-image">
-              <img id = "image" src = "https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-          </div>
+        <% @projects.order(rank: :asc).each do |project|%>
+          <% if project.persisted? %>
+          <li class="project-listing" data-task-id = "<%= project.id %>">
+            <%=link_to project, class: 'text-decoration-none' do%>
+            <div class = "project-title">
+              <h5> <%= project.name %> </h5>
+            </div>
+            <div class = "project-footer">
+              <span class = "badge badge-<%= project.badge_color%>" >
+                <%=project.status%>
+              </span>
+               <span class = "badge badge-<%= project.badge_color%>" >
+                <%= project.progress_tracker%> % completed
+               </span>
+            </div>
+            <div class="project-image">
+                <img id = "image" src = "https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+            </div>
+            <% end %>
           <% end %>
         </li>
       <% end %>
