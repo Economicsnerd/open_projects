@@ -27,12 +27,12 @@
             </span>
           <% else %>
             <span class = "nav-item active">
-            <%= link_to('Login', new_user_session_path) %>
+            <%= link_to('Login', new_user_session_path, class: "btn btn-danger") %>
             </span>
           <% end %>
           <ul>
     </nav>
-    <div class="container pt-5">
+    <div class="container-fluid pt-5">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
           <%= yield %>
