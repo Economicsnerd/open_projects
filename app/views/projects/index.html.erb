@@ -8,9 +8,9 @@
       </h2>
 
 <div class="child-page-listing">
-  <ul class="grid-container" id="project-list">
+  <ul class="grid-container" id="project-list" data-action="drop->project#sort">
         <% @projects.each do |project|%>
-        <li class="project-listing">
+        <li class="project-listing" data-task-id = "<%= project.id %>">
           <%=link_to project, class: 'text-decoration-none' do%>
           <div class = "project-title">
             <h5> <%= project.name %> </h5>
