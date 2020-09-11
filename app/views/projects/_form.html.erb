@@ -25,3 +25,7 @@
     <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<%= simple_form_for(project) do |f| %>
+  <%= f.input :photo, as: :file %>
+<% end %>

@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   has_many :tasks, dependent: :destroy
-  has_one_attached :image
+  has_one_attached :photo
   belongs_to :user
 
   def badge_color

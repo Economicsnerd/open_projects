@@ -2,15 +2,6 @@ body {
   font-family: 'Raleway', sans-serif !important;
 }
 
-// background image
-
-.cover {
-  background-image: image-url("https://unsplash.com/photos/b21Ty33CqVs");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
 // Styling project list
 
 #project-list {
@@ -36,6 +27,12 @@ body {
   -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.16);
   -moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.16);
   box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.16);
+}
+
+// Styling the form fields
+
+.custom-file-label, .custom-file-input, .form-control {
+  border-radius: 0 !important;
 }
 
 
