@@ -20,12 +20,11 @@
     <%= form.label :description %>
     <%= form.text_area :description, class: "form-control" %>
   </div>
-
+  <!-- <div>
+  <%= form.file_field :photo, direct_upload: true %>
+  <%= form.text_field :photo, class: "form-control" %>
+  </div> -->
   <div class="actions">
     <%= form.submit class: "btn btn-primary" %>
   </div>
-<% end %>
-
-<%= simple_form_for(project) do |f| %>
-  <%= f.input :photo, as: :file %>
 <% end %>

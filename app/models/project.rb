@@ -1,7 +1,11 @@
 class Project < ApplicationRecord
   has_many :tasks, dependent: :destroy
-  has_one_attached :photo
   belongs_to :user
+  has_one_attached :photo
+
+  def get_photo_url
+    url_for(self.photo)
+  end
 
   def badge_color
     case status
